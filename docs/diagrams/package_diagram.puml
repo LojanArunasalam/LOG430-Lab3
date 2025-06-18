@@ -1,0 +1,29 @@
+@startuml
+hide circle
+hide members
+top to bottom direction
+title Diagramme de package - Système de point de vente 
+
+package "Couche Web" {
+    folder "Interface Utilisateur" { 
+        file "templates HTML"
+    }
+}
+
+package "Couche Application" {
+    folder "Controller"
+    folder "Views"
+    folder "Models"
+}
+
+package "Couche Persistence" {
+    folder "Database"
+}
+
+Controller <-> Views
+Controller <-> Models 
+Models <-> Views
+
+"Couche Web" --> "Couche Application"
+"Couche Application" --> "Couche Persistence"
+@enduml

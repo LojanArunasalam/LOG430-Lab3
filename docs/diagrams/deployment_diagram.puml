@@ -1,0 +1,32 @@
+@startuml  
+top to bottom direction
+title Diagramme de déploiement - Système de magasin
+node "<<server>>\nWeb Server" { 
+    artifact { 
+        artifact "Application Django" { 
+            file "controller.py"
+            file "models.py"
+            file "views.py"
+        }
+    } 
+}
+
+node "<<device>>\n Magasin" { 
+    artifact "Browser" { 
+        file "HTML templates"
+    }
+}
+
+database "<<device>>\nDB server" { 
+    artifact { 
+        agent "PostgreSQL server"
+    }
+}
+
+
+"controller.py" <--> "models.py" : uses
+"models.py" <-- "<<device>>\nDB server" : ORM via SQLAlchemy
+"controller.py" <--> "views.py" : uses
+"models.py" <--> "views.py" : uses
+"views.py" --> "<<device>>\n Magasin" : HTTP requests
+@enduml 
