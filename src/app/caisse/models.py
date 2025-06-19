@@ -289,6 +289,5 @@ class Store(Base):
         logging.debug(f"Fetched successfully store with name {name}")
         return store
     
-    
 # Will create the database + the tables associated with it
 Base.metadata.create_all(engine)
