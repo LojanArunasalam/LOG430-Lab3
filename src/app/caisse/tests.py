@@ -1,6 +1,7 @@
 from django.test import TestCase
 import pytest 
-from .models import Product, Sale, LineSale, User, Store, Product_Depot, Stock
+from caisse.models import Product, Sale, LineSale, User, Store, Product_Depot, Stock
+
 # Create your tests here.
 
 def test_product():
