@@ -46,14 +46,12 @@ jobs:
       run: |
         pytest src/app/caisse/tests.py
     - name: API tests
-      env: 
-        DATABASE_URL: postgresql+psycopg2://admin:admin@localhost:5432/postgres
       run: |
         cd src/app
         python manage.py test
     - name: Build Docker Image
       run: |
-        docker build -t lojanarun/lab2:latest . 
+        docker build -t lojanarun/lab3:latest . 
     - name: Publish to Docker Hub
       run: |
         docker login -u lojanarun -p ${{ secrets.DOCKER_HUB_TOKEN}}
