@@ -50,7 +50,7 @@ jobs:
         DATABASE_URL: postgresql+psycopg2://admin:admin@10.194.32.165:5432/postgres
       run: |
         cd src/app
-        python src/app/manage.py test
+        python manage.py test
     - name: Build Docker Image
       run: |
         docker build -t lojanarun/lab3:latest . 
