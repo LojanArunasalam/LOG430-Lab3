@@ -40,13 +40,17 @@ jobs:
         flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
-    - name: Test with pytest and API tests
+    - name: Test with pytest
       env: 
         DATABASE_URL: postgresql+psycopg2://admin:admin@localhost:5432/postgres
       run: |
         pytest src/app/caisse/tests.py
-        cd src/app 
-        python manage.py test
+    - name: API tests
+      env: 
+        DATABASE_URL: postgresql+psycopg2://admin:admin@10.194.32.165:5432/postgres
+      run: |
+        cd src/app
+        python src/app/manage.py test
     - name: Build Docker Image
       run: |
         docker build -t lojanarun/lab3:latest . 
