@@ -37,7 +37,7 @@ class DomainService:
         stocks = []
         store_ids = []
         for store in stores:
-            sales = self.sale_repository.get_sales_by_store(self.session, store.id)
+            sales = self.sale_repository.get_sales_by_store(store.id)
             total_store = sum(sale.total for sale in sales)
             totals.append(total_store)
             stocks_store = self.stock_repository.get_stock_by_store(self.session, store.id)
@@ -50,7 +50,7 @@ class DomainService:
 
     def generate_report(self, store_id):
         report = {}
-        sales = self.sale_repository.get_sales_by_store(self.session, store_id)
+        sales = self.sale_repository.get_sales_by_store(store_id)
         most_sold_product = None
         max_quantity = 0
             
@@ -59,7 +59,7 @@ class DomainService:
             for line_sale in line_sales:
                 if line_sale.quantite > max_quantity:
                     max_quantity = line_sale.quantite
-                    most_sold_product = self.product_repository.get_by_id(self.session, line_sale.product)
+                    most_sold_product = self.product_repository.get_by_id(line_sale.product)
 
         report["store_id"] = store_id
         report["sales"] = sales

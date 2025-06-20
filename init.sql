@@ -44,6 +44,24 @@ CREATE TABLE products_depot (
     product INTEGER REFERENCES products(id)
 );
 
+-- CREATE TABLE reports (
+--     id SERIAL PRIMARY KEY,
+--     store INTEGER REFERENCES stores(id),
+--     total_sales FLOAT,
+--     total_products_sold INTEGER,
+--     total_stock_value FLOAT
+-- );
+
+-- CREATE TABLE performances (
+--     id SERIAL PRIMARY KEY,
+--     store INTEGER REFERENCES stores(id),
+--     total_sales FLOAT,
+--     total_products_sold INTEGER,
+--     total_stock_value FLOAT
+-- );
+
+
+
 INSERT INTO stores (name) VALUES
 ('Magasin Centre-Ville'),
 ('Magasin Nord'),
