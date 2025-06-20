@@ -46,6 +46,8 @@ jobs:
       run: |
         pytest src/app/caisse/tests.py
     - name: API tests
+      env: 
+        DATABASE_URL: postgresql+psycopg2://admin:admin@localhost:5432/postgres
       run: |
         python src/app/manage.py test
     - name: Build Docker Image

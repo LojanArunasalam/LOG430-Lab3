@@ -20,7 +20,7 @@ def get_stocks_by_id(request, id):
     session = Session()
     service = StockService(session)
     stock = service.get_stock_by_id(id) or []
-    serializer = StockSerializer(stock)
+    serializer = StockSerializer(stock, many=False)
     return Response(serializer.data)
 
 @api_view(['GET'])

@@ -4,8 +4,6 @@ from sqlalchemy import select
 from .models import Product, Stock, Sale, LineSale, Store, Product_Depot, engine, logging
 from .controller import MainController
 from .caisse_controller import Caisse
-import requests
-import json
 
 
 Session = sessionmaker(bind=engine)
