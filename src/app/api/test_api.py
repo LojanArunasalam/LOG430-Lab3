@@ -1,6 +1,9 @@
 from rest_framework.test import APITestCase
 from rest_framework.test import APIClient
 from rest_framework import status
+import os 
+
+DATABASE_URL = os.getenv('DATABASE_URL')
 
 class ProductAPITests(APITestCase):
     def setUp(self):
