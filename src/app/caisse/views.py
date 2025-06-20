@@ -18,11 +18,8 @@ def home(request):
     return render(request, "home.html")
 
 def report(request, store_id):
-    response = requests.get(f"http://127.0.0.1:8000/api/v1/report/{store_id}")
-    report_data = response.json()
-    print(json.dumps(report_data, indent=4))  # Pretty print the report data for debugging
     logging.info(f"Rendering report for store {store_id}")
-    return render(request, "report.html", report_data)
+    return render(request, "report.html", mainController.generate_report(store_id))
 
 def restock_product(request, product_id, store_id):
     logging.info(f"Restocking...")
@@ -35,9 +32,7 @@ def restock_product(request, product_id, store_id):
 
 def performances(request):
     logging.info("Rendering performances page")
-    response = requests.get(f"http://127.0.0.1:8000/api/v1/performances")
-    performances_data = response.json()
-    print(performances_data)
+    performances_data = mainController.performances()
     return render(request, "performances.html", {
         "performances" : performances_data
     })

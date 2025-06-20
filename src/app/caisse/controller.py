@@ -27,6 +27,6 @@ class MainController:
         return self.domaine_service.performances()
 
     def generate_report(self, store_id):
-        return self.generate_report(store_id)
+        return self.domaine_service.generate_report(store_id)
 
 

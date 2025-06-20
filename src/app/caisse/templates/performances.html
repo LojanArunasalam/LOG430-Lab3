@@ -75,7 +75,7 @@
             <th>Product in surplus</th>
             <th>Product in rupture of stocks</th>
         </tr>
-        {% for store_id, total, stocks_store in performances %}
+        {% for total, stocks_store, store_id in performances %}
             <tr>
                 <td>Store ID : {{store_id}}</td>
                 <td>{{total}}$</td>
