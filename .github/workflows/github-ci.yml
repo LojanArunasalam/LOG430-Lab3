@@ -47,11 +47,11 @@ jobs:
         pytest src/app/caisse/tests.py
     - name: API tests
       run: |
-        python manage.py test
+        python src/app/manage.py test
     - name: Build Docker Image
       run: |
         docker build -t lojanarun/lab2:latest . 
     - name: Publish to Docker Hub
       run: |
         docker login -u lojanarun -p ${{ secrets.DOCKER_HUB_TOKEN}}
-        docker push lojanarun/lab2:latest
+        docker push lojanarun/lab3:latest
