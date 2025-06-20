@@ -45,6 +45,9 @@ jobs:
         DATABASE_URL: postgresql+psycopg2://admin:admin@localhost:5432/postgres
       run: |
         pytest src/app/caisse/tests.py
+    - name: API tests
+      run: |
+        python manage.py test
     - name: Build Docker Image
       run: |
         docker build -t lojanarun/lab2:latest . 
